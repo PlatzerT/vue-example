@@ -4,7 +4,7 @@
     <form @submit.prevent="handleSubmit">
       <span>Enter new subject:</span>
       <input type="text" v-model="newSubject" />
-      <button>Add subject</button>
+      <button class="solid">Add subject</button>
     </form>
     <ul>
       <li v-for="(s, index) in subjects" v-bind:key="index">
@@ -53,25 +53,44 @@ form {
 }
 
 button {
-  color: white;
-  background: #2c3e50;
   outline-width: none;
   border: none;
   padding: 6px 12px;
   border-radius: 5px;
   font-weight: 500;
+  border: 1px solid transparent;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  cursor: pointer;
 }
 
-button:hover {
+.solid {
+  color: white;
+  background: #2c3e50;
+}
+
+.solid:hover {
   background: #1e2b38;
 }
 
-button:focus {
+.solid:focus {
   background: #34495e;
 }
 
 .light {
-  color: #313131;
-  background: #e2e2e2;
+  color: #1f2937;
+  background: white;
+  border: 1px solid #e5e7eb;
+}
+
+.light:hover {
+  background-color: #f9fafb;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.light:focus {
+  background: #d1d5db;
+  box-shadow: none;
 }
 </style>
